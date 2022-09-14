@@ -1,6 +1,8 @@
 let allPokemon = [];
 let allPokemonDetail = [];
-let pokeId = 50;
+let pokeId = 898;
+let start = 1;
+let stop = 20;
 
 /**
  * fetches the Main Path from API for all Pokemon
@@ -16,13 +18,13 @@ async function loadPokemon() {
  * Push every single Pokemon as JSON in allPokeDetail
  */
 async function loadPokemonIndex() {
-    for (let i = 1; i <= pokeId; i++) {
+    for (let i = start; i <= pokeId; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         responseAsJson = await response.json();
         allPokemon.push(responseAsJson);
         allPokemonDetail = allPokemon;
-        //console.log(i);   //_____CONSOLE
+        console.log(i);   //_____CONSOLE
         if (i == 20) {
             loadPokemonData();
         }
