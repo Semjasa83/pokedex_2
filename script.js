@@ -9,7 +9,7 @@ let pokeId = 50;
 async function loadPokemon() {
     document.getElementById('data').innerHTML = '';
     await loadPokemonIndex();
-    console.log('first array', allPokemon);
+    //console.log('first array', allPokemon); //_____CONSOLE
 }
 
 /**
@@ -22,20 +22,37 @@ async function loadPokemonIndex() {
         responseAsJson = await response.json();
         allPokemon.push(responseAsJson);
         allPokemonDetail = allPokemon;
-        console.log(i);
+        //console.log(i);   //_____CONSOLE
         if (i == 20) {
-            loadPokemonDetail();
-        } 
+            loadPokemonData();
+        }
     }
+}
+
+/**
+ * fetch types
+ */
+
+function loadPokemonTypes(i) {
+    let htmlCode = "";
+    for (let j = 0; j < allPokemonDetail[i].types.length; j++) {
+        const types = allPokemonDetail[i].types[j];
+        htmlCode += /*hmtl*/`
+        <div class="overview-type-container ${types.type['name']}">
+        <div>${types.type['name']}</div>
+        `
+    }
+    return htmlCode;
 }
 
 /**
  * Render first 20 Pokemon
  */
-function loadPokemonDetail() {
+function loadPokemonData() {
     for (let i = 0; i < allPokemonDetail.length; i++) {
         let element = allPokemonDetail[i];
-        console.log('detail array', element);
+        console.log('detail array', element); //_____CONSOLE
+        loadPokemonTypes(i);
         document.getElementById('data').innerHTML += renderPokeData(i);
     }
 }
@@ -46,24 +63,15 @@ function renderPokeData(i) {
     return /*html*/`
         <ul >
             <li>
-                id: 
+                id: ${allPokemonDetail[i].id}
             </li>
             <li>
-
+                name: ${allPokemonDetail[i].name}
             </li>
             <li>
-
+                type: ${loadPokemonTypes(i)}
             </li>
-            <li>
-                <ul>
-                    <li>
-
-                    </li>
-                    <li>
-
-                    </li>
-                </ul>
-            </li>
+            <img src="${allPokemonDetail[i].sprites.front_default}">
         </ul>
 
  `
