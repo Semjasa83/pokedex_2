@@ -1,3 +1,17 @@
 body {
   background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#data {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+#data .test-div {
+  border: 1px solid red;
+  width: 200px;
 }/*# sourceMappingURL=style.css.map */
