@@ -1,17 +1,68 @@
+:root {
+  --primary-color: #000000E6;
+  --primary-card: #ffffff;
+  --secondary-card: #ffffff;
+  --font-card: #ffffff;
+}
+
 body {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--primary-color);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-#data {
+.dispfl-c {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+}
+
+#pokeIndex {
   flex-wrap: wrap;
   width: 100%;
 }
-#data .test-div {
-  border: 1px solid red;
+#pokeIndex .pokeIndexOverview {
   width: 200px;
+  height: 160px;
+  border: 1px solid red;
+  margin: 1rem;
+  padding: 0.75rem;
+  border-radius: 1rem;
+}
+#pokeIndex .pokeIndexOverview .pokeIndexHeadline {
+  display: flex;
+  justify-content: space-between;
+}
+#pokeIndex .pokeIndexOverview .pokeIndexHeadline span {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+#pokeIndex .pokeIndexOverview .pokeIndexHeadline span:first-letter {
+  text-transform: uppercase;
+}
+#pokeIndex .pokeIndexOverview .pokeIndexContent {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+  height: 80%;
+  border: 1px solid green;
+}
+#pokeIndex .pokeIndexOverview .pokeIndexContent .pokeIndexTypes {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
+  width: 6rem;
+}
+#pokeIndex .pokeIndexOverview .pokeIndexContent .pokeIndexTypes .pokeIndexType {
+  width: 100%;
+  margin: 4px 0;
+  border-radius: 0.5rem;
+  padding: 4px 0;
+  font-weight: 600;
+}
+#pokeIndex .pokeIndexOverview .pokeIndexContent img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=style.css.map */

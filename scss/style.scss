@@ -1,17 +1,67 @@
+:root {
+    --primary-color: #000000E6;
+    --primary-card: #ffffff;
+    --secondary-card: #ffffff;
+    --font-card: #ffffff;
+}
+
 body {
-    background-color: rgba($color: #000000, $alpha: 0.4);
+    background-color: var(--primary-color);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-#data {
+.dispfl-c {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+}
+
+#pokeIndex {
     flex-wrap: wrap;
     width: 100%;
-    .test-div {
-        border: 1px solid red;
+    .pokeIndexOverview {
         width: 200px;
+        height: 160px;
+        border: 1px solid red;
+        margin: 1rem;
+        padding: 0.75rem;
+        border-radius: 1rem;
+        .pokeIndexHeadline {
+            display: flex;
+            justify-content: space-between;
+            span{
+                font-size: 1.25rem;
+                font-weight: 700;
+                &:first-letter{
+                    text-transform: uppercase;
+                }       
+            }
+        }
+        .pokeIndexContent {
+            display: flex;
+            justify-content: center;
+            padding-top: 0.5rem;
+            height: 80%;
+            border: 1px solid green;
+            .pokeIndexTypes {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid blue;
+                width: 6rem;
+                .pokeIndexType {
+                    width: 100%;
+                    margin: 4px 0;
+                    border-radius: 0.5rem;
+                    padding: 4px 0;
+                    font-weight: 600;
+                }
+            }
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
     }
 }
