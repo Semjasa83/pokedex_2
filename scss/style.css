@@ -1,20 +1,35 @@
 :root {
-  --primary-color: #000000E6;
+  --primary-color: #00000099;
   --primary-card: #ffffff;
   --secondary-card: #ffffff;
-  --font-card: #ffffff;
+  --font-light: #ffffff;
+  --font-dark: #000000;
+  --shadow-card: #ffffff55;
+  --border-card: #000000CC;
 }
 
 body {
   background-color: var(--primary-color);
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  background-image: url(/img/single-bgr.png);
+  background-repeat: repeat;
+  background-size: contain;
 }
 
 .dispfl-c {
   display: flex;
   justify-content: center;
+}
+
+.mainLogo {
+  height: 7rem;
+  width: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 3rem;
 }
 
 #pokeIndex {
@@ -24,9 +39,9 @@ body {
 #pokeIndex .pokeIndexOverview {
   width: 200px;
   height: 160px;
-  border: 1px solid red;
-  margin: 1rem;
-  padding: 0.75rem;
+  border: 2px solid var(--primary-card);
+  margin: 1.5rem;
+  padding: 0.5rem;
   border-radius: 1rem;
 }
 #pokeIndex .pokeIndexOverview .pokeIndexHeadline {
@@ -36,6 +51,7 @@ body {
 #pokeIndex .pokeIndexOverview .pokeIndexHeadline span {
   font-size: 1.25rem;
   font-weight: 700;
+  color: var(--font-dark);
 }
 #pokeIndex .pokeIndexOverview .pokeIndexHeadline span:first-letter {
   text-transform: uppercase;
@@ -45,13 +61,15 @@ body {
   justify-content: center;
   padding-top: 0.5rem;
   height: 80%;
-  border: 1px solid green;
+  background-color: var(--shadow-card);
+  box-shadow: inset 0 0 10px var(--primary-color);
+  border-radius: 1rem;
 }
 #pokeIndex .pokeIndexOverview .pokeIndexContent .pokeIndexTypes {
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
   width: 6rem;
+  padding-left: 0.5rem;
 }
 #pokeIndex .pokeIndexOverview .pokeIndexContent .pokeIndexTypes .pokeIndexType {
   width: 100%;

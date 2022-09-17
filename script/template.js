@@ -2,7 +2,7 @@
 function renderPokeIndex(i){
     let pokePath = allPokemonDetail[i];
     return/*html*/`
-    <div class="pokeIndexOverview">
+    <div class="pokeIndexOverview ${pokePath.types[0].type.name}">
         <div class="pokeIndexHeadline"> 
             <span class="pokeIndexName">${pokePath.name}</span>
             <span class="pokeIndexId">${pokePath.id} #</span>
