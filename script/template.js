@@ -19,9 +19,9 @@ function templatePokeDetail(i) {
     let pokePath = allPokemonDetail[i];
     return/*html*/`
     <div id="pokeDetailSpacer" onclick="closePokeDetail()">
-        <div id="pokeDetail" class="${pokePath.types[0].type.name}">
-            <div class="pokeDetailMenu">
-
+        <div id="pokeDetail">
+            <div class="pokeDetailNav">
+                <span class="cursor">Go Back</span>
             </div>
             <div class="pokeDetailUpper">
                 <div class="pokeDetailSort">
@@ -35,6 +35,14 @@ function templatePokeDetail(i) {
             <div class="pokeDetailBtnEffect">
                 <div class="pokeDetailLower">
                     <img class="pokeDetailAvatar" src="${pokePath.sprites.other.dream_world.front_default}">
+                    <div class="pokeDetailMenu">
+                        <ul>
+                            <li>About</li>
+                            <li>Base Stats</li>
+                            <li>Evolution</li>
+                            <li>Moves</li>
+                        </ul>
+                    <div>
                 </div>
             </div>
 
