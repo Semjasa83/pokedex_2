@@ -4,6 +4,8 @@ let startOffset = 1; // 1 + 40 = 41      41 + 40 = 81
 let stopOffset = 30; // 40 + 40 = 80     80 + 40 = 120
 let permissionForLoadMore = true;
 
+/********** API Fetch for Data ************/
+
 /**
  * fetches the Main Path from API for all Pokemon
  */
@@ -32,6 +34,7 @@ async function loadPokemonIndex() {
     permissionForLoadMore = true;
 }
 
+/********** Render Functions ************/
 
 /**
  * fetch types
@@ -50,7 +53,7 @@ function loadPokemonTypes(i) {
 
 
 /**
- * Render first 20 Pokemon
+ * Render first 30 Pokemon
  */
 function loadPokemonData() {
     for (let i = startOffset - 1; i < allPokemonDetail.length; i++) {
@@ -61,6 +64,7 @@ function loadPokemonData() {
     }
 }
 
+/********** Index Load ************/
 
 /**
  * when you are near the bottom of Site --> load more Pokemons 
@@ -83,6 +87,8 @@ async function loadMorePokemon() {
 }
 
 
+/********** Detailbox ************/
+
 /**
  * open Pokemon Detailbox
  */
@@ -102,4 +108,23 @@ function closePokeDetail() {
     let scroll = document.getElementById('bodyScroll');
     closePopup.classList.add('d-none');
     scroll.classList.remove("noscrolling");
+}
+
+
+/********** DetailBox Content ************/
+
+function switchAbout(){
+
+}
+
+function switchBaseStats(){
+    
+}
+
+function switchEvolution(){
+    
+}
+
+function switchMoves(){
+    
 }

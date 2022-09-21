@@ -9,6 +9,7 @@
 }
 
 body {
+  font-family: "Plus Jakarta Sans", sans-serif;
   background-color: var(--primary-color);
   display: flex;
   justify-content: center;
@@ -46,6 +47,7 @@ body {
   margin: 3rem;
 }
 
+/********** Pokemon Index ***********/
 #pokeIndex {
   flex-wrap: wrap;
   width: 100%;
@@ -63,14 +65,15 @@ body {
   justify-content: space-between;
 }
 #pokeIndex .pokeIndexOverview .pokeIndexHeadline span {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--font-dark);
 }
 #pokeIndex .pokeIndexOverview .pokeIndexHeadline span:first-letter {
   text-transform: uppercase;
 }
-#pokeIndex .pokeIndexOverview .pokeIndexContent {
+
+.pokeIndexContent {
   display: flex;
   justify-content: center;
   padding-top: 0.5rem;
@@ -79,26 +82,28 @@ body {
   box-shadow: inset 0 0 10px var(--primary-color);
   border-radius: 1rem;
 }
-#pokeIndex .pokeIndexOverview .pokeIndexContent .pokeIndexTypes {
+.pokeIndexContent .pokeIndexTypes {
   display: flex;
   flex-direction: column;
   width: 6rem;
   padding-left: 0.5rem;
 }
-#pokeIndex .pokeIndexOverview .pokeIndexContent .pokeIndexTypes .pokeIndexType {
+.pokeIndexContent .pokeIndexTypes .pokeIndexType {
   width: 100%;
   margin: 4px 0;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   padding: 4px 0;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 400;
 }
-#pokeIndex .pokeIndexOverview .pokeIndexContent img {
+.pokeIndexContent img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
+/********** Pokemon Details ***********/
 #pokeDetailPopup {
   position: absolute;
   position: fixed;
@@ -116,59 +121,72 @@ body {
   justify-content: center;
   align-items: center;
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail {
+
+#pokeDetail {
   position: relative;
   display: flex;
   flex-direction: column;
   z-index: 5;
-  height: 100%;
+  height: 95%;
   width: 28rem;
   border-radius: 2rem;
   box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.8666666667);
   background-image: url(/img/header-bgr-tr.jpg);
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailNav {
+#pokeDetail .pokeDetailNav {
   height: 10%;
+  width: 100px;
   display: flex;
   align-items: center;
-}
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailNav span {
-  padding-left: 2rem;
-}
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailNav span:hover {
-  color: var(--font-hover);
-}
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailUpper {
-  display: flex;
   flex-direction: column;
-  position: relative;
-  justify-content: space-between;
-  margin: 1rem 0;
-  border-radius: 2rem;
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailUpper .pokeDetailSort {
-  display: flex;
-  justify-content: space-between;
+#pokeDetail .pokeDetailNav img {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 2rem;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailUpper .pokeDetailSort span {
-  margin: 1rem 2rem 0.5rem 2rem;
-  font-size: 2rem;
-  font-weight: 700;
+#pokeDetail .pokeDetailNav img:hover {
+  transform: scale(1.2);
+  background-color: var(--font-hover);
+  border-radius: 100%;
+  box-shadow: 0 0 10px var(--font-hover);
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailUpper .pokeDetailSort span:first-letter {
-  text-transform: uppercase;
-}
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailUpper .pokeDetailTypes {
+
+.pokeDetailTypes {
   display: flex;
   margin: 0.5rem 2rem 0.5rem 2rem;
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailUpper .pokeDetailTypes .pokeIndexType {
+.pokeDetailTypes .pokeIndexType {
   margin-right: 1rem;
   width: 80px;
   padding: 0.5rem;
   border-radius: 1rem;
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailBtnEffect {
+
+.pokeDetailUpper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+  margin: 0 0 1rem 0;
+  border-radius: 2rem;
+}
+.pokeDetailUpper .pokeDetailSort {
+  display: flex;
+  justify-content: space-between;
+}
+.pokeDetailUpper .pokeDetailSort span {
+  margin: 1rem 2rem 0.5rem 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.pokeDetailUpper .pokeDetailSort span:first-letter {
+  text-transform: uppercase;
+}
+
+.pokeDetailBtnEffect {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -177,12 +195,12 @@ body {
   border-radius: 2rem;
   box-shadow: 0 0 10px var(--primary-color);
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailBtnEffect .pokeDetailLower {
+.pokeDetailBtnEffect .pokeDetailLower {
   position: relative;
-  height: 100%;
+  height: 90%;
   width: 100%;
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailBtnEffect .pokeDetailLower .pokeDetailAvatar {
+.pokeDetailBtnEffect .pokeDetailLower .pokeDetailAvatar {
   position: absolute;
   -o-object-fit: contain;
      object-fit: contain;
@@ -191,24 +209,25 @@ body {
   top: -11rem;
   left: 50%;
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailBtnEffect .pokeDetailLower .pokeDetailMenu {
+
+.pokeDetailMenu {
   width: 100%;
   padding: 0;
   height: 1rem;
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailBtnEffect .pokeDetailLower .pokeDetailMenu ul {
+.pokeDetailMenu ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
   margin: 1rem 2rem;
   padding: 0;
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailBtnEffect .pokeDetailLower .pokeDetailMenu ul li {
+.pokeDetailMenu ul li {
   padding: 1rem;
   border-bottom: 1px solid var(--menu-decor);
   white-space: pre-wrap;
 }
-#pokeDetailPopup #pokeDetailSpacer #pokeDetail .pokeDetailBtnEffect .pokeDetailLower .pokeDetailMenu ul li:hover {
+.pokeDetailMenu ul li:hover {
   color: var(--font-hover);
   border-bottom: 2px solid var(--font-hover);
 }/*# sourceMappingURL=style.css.map */
