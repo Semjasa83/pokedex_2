@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,11 +12,11 @@
     <link rel="stylesheet" href="scss/types.css">
     <link rel="icon" type="image/svg+xml" href="img/pokeball.png" sizes="any">
 </head>
-<body onload="loadPokemon()" onscroll="scrollLoading()">
+
+<body id="bodyScroll" onload="loadPokemon()" onscroll="scrollLoading()">
     <img class="mainLogo" src="img/mainlogo.svg">
+    <div id="pokeDetailPopup" class="d-none"></div>
     <div id="pokeIndex" class="dispfl-c"></div>
-
-
-
 </body>
+
 </html>

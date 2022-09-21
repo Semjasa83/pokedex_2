@@ -28,7 +28,7 @@ async function loadPokemonIndex() {
          // i % 20 == 0 ----------------> INFO EINHOLEN!!!!!!
     }
     loadPokemonData();
-    console.log(allPokemonDetail);  //_____CONSOLE
+    //console.log(allPokemonDetail);  //_____CONSOLE
     permissionForLoadMore = true;
 }
 
@@ -55,7 +55,7 @@ function loadPokemonTypes(i) {
 function loadPokemonData() {
     for (let i = startOffset - 1; i < allPokemonDetail.length; i++) {
         let element = allPokemonDetail[i];
-        //console.log('detail array', element); //_____CONSOLE
+        console.log('detail array', element); //_____CONSOLE
         loadPokemonTypes(i);
         document.getElementById('pokeIndex').innerHTML += renderPokeIndex(i);
     }
@@ -80,4 +80,26 @@ async function loadMorePokemon() {
     startOffset += 30;
     stopOffset += 30;
     await loadPokemonIndex();
+}
+
+
+/**
+ * open Pokemon Detailbox
+ */
+function openPokeDetail(i) {
+    let overlay = document.getElementById('pokeDetailPopup');
+    let noscroll = document.getElementById('bodyScroll');
+    overlay.classList.remove('d-none');
+    noscroll.classList.add("noscrolling");
+    overlay.innerHTML = templatePokeDetail(i);
+}
+
+/**
+ * close Pokemon Detailbox
+ */
+function closePokeDetail() {
+    let closePopup = document.getElementById('pokeDetailPopup');
+    let scroll = document.getElementById('bodyScroll');
+    closePopup.classList.add('d-none');
+    scroll.classList.remove("noscrolling");
 }

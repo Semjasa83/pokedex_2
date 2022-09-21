@@ -5,7 +5,7 @@
     --font-light: #ffffff;
     --font-dark: #000000;
     --shadow-card: #ffffff55;
-    --border-card: #000000CC;
+    --border-card: #000000cc;
 }
 
 body {
@@ -14,14 +14,28 @@ body {
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    background-image: url(/img/single-bgr.png);
+    background-image: url(/img/single-bgr.jpg);
     background-repeat: repeat;
     background-size: contain;
+    position: relative;
+    margin: 0;
 }
 
 .dispfl-c {
     display: flex;
     justify-content: center;
+}
+
+.d-none {
+    display: none;
+}
+
+.noscrolling {
+    overflow: hidden;
+}
+
+.cursor {
+    cursor: pointer;
 }
 
 .mainLogo {
@@ -44,13 +58,13 @@ body {
         .pokeIndexHeadline {
             display: flex;
             justify-content: space-between;
-            span{
+            span {
                 font-size: 1.25rem;
                 font-weight: 700;
                 color: var(--font-dark);
-                &:first-letter{
+                &:first-letter {
                     text-transform: uppercase;
-                }       
+                }
             }
         }
         .pokeIndexContent {
@@ -79,6 +93,92 @@ body {
                 width: 100%;
                 height: 100%;
             }
+        }
+    }
+}
+
+#pokeDetailPopup {
+    position: absolute;
+    position: fixed;
+    overflow-y: scroll;
+    z-index: 3;
+    height: 100vh;
+    width: 100%;
+    #pokeDetailSpacer {
+        z-index: 4;
+        height: 100%;
+        width: 100%;
+        background-color: #00000077;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        #pokeDetail {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            z-index: 5;
+            height: 100%;
+            width: 28rem;
+            border-radius: 2rem;
+            box-shadow: 8px 8px 20px #000000dd;
+            .pokeDetailMenu {
+                height: 10%;
+            }
+            .pokeDetailUpper {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                justify-content: space-between;
+                margin: 1rem;
+                border-radius: 2rem;
+                .pokeDetailSort {
+                    display: flex;
+                    justify-content: space-between;
+                    span {
+                        margin: 1rem 2rem 0.5rem 2rem;
+                        font-size: 2rem;
+                        font-weight: 700;
+                        &:first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+                .pokeDetailTypes {
+                    display: flex;
+                    margin: 0.5rem 2rem 0.5rem 2rem;
+                    .pokeIndexType {
+                        margin-right: 1rem;
+                        width: 80px;
+                        padding: 0.5rem;
+                        border-radius: 1rem;
+                        box-shadow: 0 0 10px var(--primary-color);
+                    }
+                }
+
+            }
+            .pokeDetailBtnEffect {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 60%;
+                background-color: var(--primary-card);
+                border-radius: 2rem;
+                box-shadow: 0 0 10px var(--primary-color);
+                .pokeDetailLower {
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
+                    .pokeDetailAvatar {
+                        position: absolute;
+                        object-fit: contain;
+                        max-height: 200px;
+                        max-width: 200px;
+                        top: -7rem;
+                        left: 50%;
+                    }
+                }
+            }
+
         }
     }
 }
