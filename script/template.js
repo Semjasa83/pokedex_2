@@ -37,7 +37,7 @@ function templatePokeDetail(i) {
                     <img class="pokeDetailAvatar" src="${pokePath.sprites.other.dream_world.front_default}">
                     <div class="pokeDetailMenu">
                         <ul>
-                            <li onclick="switchAbout()" class="cursor">About</li>
+                            <li onclick="switchAbout(i)" class="cursor">About</li>
                             <li onclick="switchBaseStats()" class="cursor">Base Stats</li>
                             <li onclick="switchEvolution()" class="cursor">Evolution</li>
                             <li onclick="switchMoves()" class="cursor">Moves</li>
@@ -50,5 +50,11 @@ function templatePokeDetail(i) {
             </div>
         </div>
     </div>
+    `
+}
+
+function templateAbout() {
+    return/*html*/`
+    Test2
     `
 }

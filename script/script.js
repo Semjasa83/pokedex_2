@@ -58,7 +58,7 @@ function loadPokemonTypes(i) {
 function loadPokemonData() {
     for (let i = startOffset - 1; i < allPokemonDetail.length; i++) {
         let element = allPokemonDetail[i];
-        console.log('detail array', element); //_____CONSOLE
+        //console.log('detail array', element); //_____CONSOLE
         loadPokemonTypes(i);
         document.getElementById('pokeIndex').innerHTML += renderPokeIndex(i);
     }
@@ -113,8 +113,12 @@ function closePokeDetail() {
 
 /********** DetailBox Content ************/
 
-function switchAbout(){
-
+function switchAbout(i){
+    let pokePath = allPokemonDetail[i];
+    console.log(i);
+    let setContent = document.getElementById('pokeDetailContent');
+    setContent.innerHTML = '';
+    //setContent.innerHTML = templateAbout();
 }
 
 function switchBaseStats(){
