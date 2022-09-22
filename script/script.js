@@ -57,7 +57,7 @@ function loadPokemonTypes(i) {
  */
 function loadPokemonData() {
     for (let i = startOffset - 1; i < allPokemonDetail.length; i++) {
-        let element = allPokemonDetail[i];
+        //let element = allPokemonDetail[i];
         //console.log('detail array', element); //_____CONSOLE
         loadPokemonTypes(i);
         document.getElementById('pokeIndex').innerHTML += renderPokeIndex(i);
@@ -98,6 +98,7 @@ function openPokeDetail(i) {
     overlay.classList.remove('d-none');
     noscroll.classList.add("noscrolling");
     overlay.innerHTML = templatePokeDetail(i);
+    console.log(allPokemonDetail[i])
 }
 
 /**
@@ -115,10 +116,10 @@ function closePokeDetail() {
 
 function switchAbout(i){
     let pokePath = allPokemonDetail[i];
-    console.log(i);
+    console.log(pokePath); //_____CONSOLE
     let setContent = document.getElementById('pokeDetailContent');
     setContent.innerHTML = '';
-    //setContent.innerHTML = templateAbout();
+    setContent.innerHTML = templateAbout(i);
 }
 
 function switchBaseStats(){
@@ -129,6 +130,32 @@ function switchEvolution(){
     
 }
 
-function switchMoves(){
-    
+function switchMoves(i){
+    let pokePath = allPokemonDetail[i];
+    let setContent = document.getElementById('pokeDetailContent');
+    setContent.innerHTML = '';
+    setContent.innerHTML = templateMoves(i);
+}
+
+/********** DetailBox Content Variables ************/
+
+function pullAbilities(i){
+    let pokePath = allPokemonDetail[i];
+    let htmlCode = '';
+    for (let j = 0; j < pokePath.abilities.length; j++) {
+        const element = pokePath.abilities[j];
+        console.log(element.ability.name);
+        htmlCode += `<span class="abilitySpacer">${element.ability.name}</span>`;
+    } 
+    return htmlCode;
+}
+
+function pullMoves(i){
+    let pokePath = allPokemonDetail[i];
+    let htmlCode = '';
+    for (let j = 0; j < pokePath.moves.length; j++) {
+        const element = pokePath.moves[j];
+        htmlCode += `<span class="moveSpacer">${element.move.name}</span>`;
+    } 
+    return htmlCode;
 }

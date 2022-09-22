@@ -37,14 +37,48 @@ function templatePokeDetail(i) {
                     <img class="pokeDetailAvatar" src="${pokePath.sprites.other.dream_world.front_default}">
                     <div class="pokeDetailMenu">
                         <ul>
-                            <li onclick="switchAbout(i)" class="cursor">About</li>
+                            <li onclick="switchAbout(${i})" class="cursor">About</li>
                             <li onclick="switchBaseStats()" class="cursor">Base Stats</li>
                             <li onclick="switchEvolution()" class="cursor">Evolution</li>
-                            <li onclick="switchMoves()" class="cursor">Moves</li>
+                            <li onclick="switchMoves(${i})" class="cursor">Moves</li>
                         </ul>
                     <div>
                     <div id="pokeDetailContent">
-                        test1
+                        <div id="templateAbout">
+                            <table class="tableAbilities">
+                                <tr>
+                                    <th>Species</th>
+                                    <td class="nameUppercase">${pokePath.species.name}</td>
+                                </tr>
+                                <tr>
+                                    <th>Height</th>
+                                    <td>${pokePath.height}0 cm</td>
+                                </tr>
+                                <tr>
+                                    <th>Weight</th>
+                                    <td>${pokePath.weight}00 g</td>
+                                </tr>
+                                <tr>
+                                    <th>Abilities</th>
+                                    <td>${pullAbilities(i)}</td>
+                                </tr>
+                            </table>
+                            <span class="detailHeadline">Breeding</span>
+                            <table class="tableAbilities">
+                                <tr>
+                                    <th>Gender</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Egg Groups</th>
+                                    <td class="nameUppercase"></td>
+                                </tr>
+                                <tr>
+                                    <th>Egg Cycle</th>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -53,8 +87,51 @@ function templatePokeDetail(i) {
     `
 }
 
-function templateAbout() {
+function templateAbout(i) {
+    let pokePath = allPokemonDetail[i];
     return/*html*/`
-    Test2
+    <div id="templateAbout">
+    <table class="tableAbilities">
+        <tr>
+            <th>Species</th>
+            <td class="nameUppercase">${pokePath.species.name}</td>
+        </tr>
+        <tr>
+            <th>Height</th>
+            <td>${pokePath.height}0 cm</td>
+        </tr>
+        <tr>
+            <th>Weight</th>
+            <td>${pokePath.weight}00 g</td>
+        </tr>
+        <tr>
+            <th>Abilities</th>
+            <td>${pullAbilities(i)}</td>
+        </tr>
+    </table>
+    <span class="detailHeadline">Breeding</span>
+    <table class="tableAbilities">
+        <tr>
+            <th>Gender</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Egg Groups</th>
+            <td class="nameUppercase"></td>
+        </tr>
+        <tr>
+            <th>Egg Cycle</th>
+            <td></td>
+        </tr>
+    </table>
+</div>
+    `
+}
+
+function templateMoves(i) {
+    return/*html*/`
+    <div class="detailMoves">
+        ${pullMoves(i)}
+    </div>
     `
 }

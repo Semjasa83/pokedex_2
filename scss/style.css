@@ -1,25 +1,26 @@
 :root {
+  --card-border: #ffffff99;
+  --card-shadow: #ffffff55;
+  --card-text: #7c7c7cdd;
   --font-dark: #000000;
   --font-hover: #ffc800;
-  --primary-color: #00000099;
-  --card-shadow: #ffffff55;
-  --card-border: #ffffff99;
-  --secondary-card: #ffffff;
   --menu-decor: #a9a9a966;
+  --primary-color: #00000099;
+  --secondary-card: #ffffff;
 }
 
 body {
-  font-family: "Plus Jakarta Sans", sans-serif;
   background-color: var(--primary-color);
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
   background-image: url(../img/single-bgr.jpg);
   background-repeat: repeat;
   background-size: contain;
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  justify-content: center;
   margin: 0;
+  position: relative;
 }
 
 .dispfl-c {
@@ -35,16 +36,20 @@ body {
   overflow: hidden;
 }
 
+.nameUppercase:first-letter {
+  text-transform: uppercase;
+}
+
 .cursor {
   cursor: pointer;
 }
 
 .mainLogo {
   height: 7rem;
-  width: 20rem;
+  margin: 3rem;
   -o-object-fit: cover;
      object-fit: cover;
-  margin: 3rem;
+  width: 20rem;
 }
 
 /********** Pokemon Index ***********/
@@ -53,105 +58,105 @@ body {
   width: 100%;
 }
 #pokeIndex .pokeIndexOverview {
-  width: 200px;
-  height: 160px;
+  border-radius: 1rem;
   border: 2px solid var(--card-border);
+  height: 260px;
   margin: 1.5rem;
   padding: 0.5rem;
-  border-radius: 1rem;
+  width: 300px;
 }
 #pokeIndex .pokeIndexOverview .pokeIndexHeadline {
   display: flex;
   justify-content: space-between;
 }
 #pokeIndex .pokeIndexOverview .pokeIndexHeadline span {
+  color: var(--font-dark);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--font-dark);
 }
 #pokeIndex .pokeIndexOverview .pokeIndexHeadline span:first-letter {
   text-transform: uppercase;
 }
 
 .pokeIndexContent {
+  background-color: var(--card-shadow);
+  border-radius: 1rem;
+  box-shadow: inset 0 0 10px var(--primary-color);
   display: flex;
+  height: 80%;
   justify-content: center;
   padding-top: 0.5rem;
-  height: 80%;
-  background-color: var(--card-shadow);
-  box-shadow: inset 0 0 10px var(--primary-color);
-  border-radius: 1rem;
 }
 .pokeIndexContent .pokeIndexTypes {
   display: flex;
   flex-direction: column;
-  width: 6rem;
   padding-left: 0.5rem;
+  width: 6rem;
 }
 .pokeIndexContent .pokeIndexTypes .pokeIndexType {
-  width: 100%;
-  margin: 4px 0;
   border-radius: 1rem;
-  padding: 4px 0;
   font-size: 0.75rem;
   font-weight: 400;
+  margin: 4px 0;
+  padding: 4px 0;
+  width: 100%;
 }
 .pokeIndexContent img {
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
-  height: 100%;
 }
 
 /********** Pokemon Details ***********/
 #pokeDetailPopup {
+  height: 100vh;
+  overflow-y: scroll;
   position: absolute;
   position: fixed;
-  overflow-y: scroll;
-  z-index: 3;
-  height: 100vh;
   width: 100%;
+  z-index: 3;
 }
 #pokeDetailPopup #pokeDetailSpacer {
-  z-index: 4;
-  height: 100%;
-  width: 100%;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.4666666667);
   display: flex;
+  height: 100%;
   justify-content: center;
-  align-items: center;
+  width: 100%;
+  z-index: 4;
 }
 
 #pokeDetail {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  z-index: 5;
-  height: 95%;
-  width: 28rem;
+  background-image: url(../img/header-bgr-tr.jpg);
   border-radius: 2rem;
   box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.8666666667);
-  background-image: url(../img/header-bgr-tr.jpg);
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  position: relative;
+  width: 450px;
+  z-index: 5;
 }
 #pokeDetail .pokeDetailNav {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   height: 10%;
   width: 100px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 }
 #pokeDetail .pokeDetailNav img {
-  width: 2rem;
   height: 2rem;
   margin-top: 2rem;
   -o-object-fit: contain;
      object-fit: contain;
+  width: 2rem;
 }
 #pokeDetail .pokeDetailNav img:hover {
-  transform: scale(1.2);
   background-color: var(--font-hover);
   border-radius: 100%;
   box-shadow: 0 0 10px var(--font-hover);
+  transform: scale(1.2);
 }
 
 .pokeDetailTypes {
@@ -159,75 +164,123 @@ body {
   margin: 0.5rem 2rem 0.5rem 2rem;
 }
 .pokeDetailTypes .pokeIndexType {
-  margin-right: 1rem;
-  width: 80px;
-  padding: 0.5rem;
   border-radius: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem;
+  width: 80px;
 }
 
 .pokeDetailUpper {
+  border-radius: 2rem;
   display: flex;
   flex-direction: column;
-  position: relative;
   justify-content: space-between;
   margin: 0 0 1rem 0;
-  border-radius: 2rem;
+  position: relative;
 }
 .pokeDetailUpper .pokeDetailSort {
   display: flex;
   justify-content: space-between;
 }
 .pokeDetailUpper .pokeDetailSort span {
-  margin: 1rem 2rem 0.5rem 2rem;
   font-size: 2rem;
   font-weight: 700;
+  margin: 1rem 2rem 0.5rem 2rem;
 }
 .pokeDetailUpper .pokeDetailSort span:first-letter {
   text-transform: uppercase;
 }
 
 .pokeDetailBtnEffect {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60%;
   background-color: var(--secondary-card);
   border-radius: 2rem;
+  bottom: 0;
   box-shadow: 0 0 10px var(--primary-color);
+  height: 60%;
+  position: absolute;
+  width: 100%;
 }
 .pokeDetailBtnEffect .pokeDetailLower {
-  position: relative;
+  display: flex;
   height: 90%;
+  justify-content: center;
+  position: relative;
   width: 100%;
 }
 .pokeDetailBtnEffect .pokeDetailLower .pokeDetailAvatar {
-  position: absolute;
-  -o-object-fit: contain;
-     object-fit: contain;
+  left: 50%;
   max-height: 200px;
   max-width: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
   top: -11rem;
-  left: 50%;
 }
 
 .pokeDetailMenu {
-  width: 100%;
-  padding: 0;
   height: 1rem;
+  padding: 0;
+  width: 100%;
 }
 .pokeDetailMenu ul {
-  list-style: none;
   display: flex;
   justify-content: space-between;
+  list-style: none;
   margin: 1rem 2rem;
   padding: 0;
 }
 .pokeDetailMenu ul li {
+  border-bottom: 2px solid var(--menu-decor);
+  color: var(--card-text);
   padding: 1rem;
-  border-bottom: 1px solid var(--menu-decor);
   white-space: pre-wrap;
 }
 .pokeDetailMenu ul li:hover {
-  color: var(--font-hover);
   border-bottom: 2px solid var(--font-hover);
+  color: var(--font-hover);
+}
+
+#pokeDetailContent {
+  border: 1px solid red;
+  height: 100%;
+  margin: 1rem;
+  width: auto;
+}
+
+.tableAbilities {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.tableAbilities tr th {
+  color: var(--card-text);
+  font-weight: 400;
+  line-height: 2rem;
+  text-align: left;
+  width: 120px;
+}
+.tableAbilities tr td {
+  padding: 0 1rem;
+}
+.tableAbilities tr .abilitySpacer {
+  margin-right: 1rem;
+}
+
+.detailHeadline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding-left: 2px;
+}
+
+.detailMoves {
+  display: flex;
+  flex-wrap: wrap;
+  height: 370px;
+  overflow: scroll;
+  width: 100%;
+}
+.detailMoves .moveSpacer {
+  background-color: var(--font-hover);
+  border-radius: 2rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
 }/*# sourceMappingURL=style.css.map */
