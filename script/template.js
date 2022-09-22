@@ -21,7 +21,7 @@ function templatePokeDetail(i) {
     <div id="pokeDetailSpacer">
         <div id="pokeDetail">
             <div class="pokeDetailNav">
-                <img class="cursor" src="/img/arrow.png" onclick="closePokeDetail()">
+                <img class="cursor" src="../img/arrow.png" onclick="closePokeDetail()">
             </div>
             <div class="pokeDetailUpper">
                 <div class="pokeDetailSort">
