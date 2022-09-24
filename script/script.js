@@ -3,6 +3,7 @@ let allPokemonDetail = []; //specific Data from Pokemon
 let startOffset = 1; // 1 + 40 = 41      41 + 40 = 81
 let stopOffset = 30; // 40 + 40 = 80     80 + 40 = 120
 let permissionForLoadMore = true;
+let statsNames = ['HP','Attack','Defense','Sp.Atk','Sp.Def','Speed'];
 
 /********** API Fetch for Data ************/
 
@@ -57,10 +58,10 @@ function loadPokemonTypes(i) {
  */
 function loadPokemonData() {
     for (let i = startOffset - 1; i < allPokemonDetail.length; i++) {
-        //let element = allPokemonDetail[i];
+        let pokePath = allPokemonDetail[i];
         //console.log('detail array', element); //_____CONSOLE
         loadPokemonTypes(i);
-        document.getElementById('pokeIndex').innerHTML += renderPokeIndex(i);
+        document.getElementById('pokeIndex').innerHTML += renderPokeIndex(i, pokePath);
     }
 }
 
@@ -98,7 +99,7 @@ function openPokeDetail(i) {
     overlay.classList.remove('d-none');
     noscroll.classList.add("noscrolling");
     overlay.innerHTML = templatePokeDetail(i);
-    console.log(allPokemonDetail[i])
+    console.log('test', allPokemonDetail[i])
 }
 
 /**
@@ -114,6 +115,10 @@ function closePokeDetail() {
 
 /********** DetailBox Content ************/
 
+/**
+ * Menu Button for About in Detail Popup 
+ * @param {number} i 
+ */
 function switchAbout(i){
     let pokePath = allPokemonDetail[i];
     console.log(pokePath); //_____CONSOLE
@@ -122,6 +127,10 @@ function switchAbout(i){
     setContent.innerHTML = templateAbout(i, pokePath);
 }
 
+/**
+ * Menu Button for Stats in Detail Popup 
+ * @param {number} i 
+ */
 function switchBaseStats(i){
     let pokePath = allPokemonDetail[i];
     let setContent = document.getElementById('pokeDetailContent');
@@ -129,10 +138,10 @@ function switchBaseStats(i){
     setContent.innerHTML = templateBaseStats(i, pokePath);
 }
 
-function switchEvolution(){
-    
-}
-
+/**
+ * Menu Button for Moves in Detail Popup 
+ * @param {number} i 
+ */
 function switchMoves(i){
     let setContent = document.getElementById('pokeDetailContent');
     setContent.innerHTML = '';
@@ -141,6 +150,12 @@ function switchMoves(i){
 
 /********** DetailBox Content Variables ************/
 
+
+/**
+ * for receiving the Abilities from current Pokemon
+ * @param {number} i -- ID from current Pokemon 
+ * @returns -- Abilities from Pokemon
+ */
 function pullAbilities(i){
     let pokePath = allPokemonDetail[i];
     let htmlCode = '';
@@ -152,6 +167,11 @@ function pullAbilities(i){
     return htmlCode;
 }
 
+/**
+ * for receiving whole Moves from current Pokemon
+ * @param {number} i -- ID from current Pokemon 
+ * @returns -- List of all Moves from current Pokemon
+ */
 function pullMoves(i){
     let pokePath = allPokemonDetail[i];
     let htmlCode = '';
@@ -162,6 +182,34 @@ function pullMoves(i){
     return htmlCode;
 }
 
-function pullStats(i){
-    
+/**
+ * for receiving the Stats from current Pokemon
+ * @param {number} i -- ID from current Pokemon
+ * @param {Path from JSON} pokePath -- allPokemonDetail[i]
+ * @returns 
+ */
+function pullStats(i, pokePath){
+    let htmlCode = '';
+    for (let l = 0; l < pokePath.stats.length; l++) {
+        const allStats = pokePath.stats[l];
+        console.log(allStats);
+        htmlCode += `<tr>
+                        <th>${allStats.stat.name}</th>
+                        <td>${allStats.base_stat}</td>
+                        <td></td>
+                    </tr>`;
+    }
+    return htmlCode;
+}
+
+function showStats(stats) {
+    let htmlCode = "";
+    for (let i = 0; i < statsNames.length; i++) {
+        htmlCode += `<tr>
+                        <td>${titles[i]}</td>
+                        <td id="stats_0" class="align">${stats[i].base_stat}</td>
+                        <td class="progress"><span id="progress_${i}" class="progress-bar" style="width: 75%"></span></td>
+                    </tr>`;
+    }
+    return htmlCode;
 }

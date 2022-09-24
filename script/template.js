@@ -39,7 +39,6 @@ function templatePokeDetail(i) {
                         <ul>
                             <li onclick="switchAbout(${i})" class="cursor">About</li>
                             <li onclick="switchBaseStats(${i})" class="cursor">Base Stats</li>
-                            <li onclick="switchEvolution()" class="cursor">Evolution</li>
                             <li onclick="switchMoves(${i})" class="cursor">Moves</li>
                         </ul>
                     <div>
@@ -108,23 +107,8 @@ function templateMoves(i) {
 function templateBaseStats(i, pokePath) {
     return/*html*/`
     <div id="templateStats">
-    <table class="tableStats">
-        <tr>
-            <th>Species</th>
-            <td></td>
-        </tr>
-        <tr>
-            <th>Height</th>
-            <td></td>
-        </tr>
-        <tr>
-            <th>Weight</th>
-            <td></td>
-        </tr>
-        <tr>
-            <th>Abilities</th>
-            <td></td>
-        </tr>
+    <table class="tableAbilities">
+        ${pullStats(i, pokePath)}
     </table>
 </div>
     `

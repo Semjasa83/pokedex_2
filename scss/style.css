@@ -234,12 +234,15 @@ body {
 .pokeDetailMenu ul li {
   border-bottom: 2px solid var(--menu-decor);
   color: var(--card-text);
+  display: flex;
+  justify-content: center;
   padding: 1rem;
   white-space: pre-wrap;
+  width: 33%;
 }
 .pokeDetailMenu ul li:hover {
-  border-bottom: 2px solid var(--font-hover);
-  color: var(--font-hover);
+  border-bottom: 2px solid var(--font-dark);
+  color: var(--font-dark);
 }
 
 #pokeDetailContent {
@@ -258,7 +261,7 @@ body {
   font-weight: 400;
   line-height: 2rem;
   text-align: left;
-  width: 100px;
+  width: 70px;
 }
 .tableAbilities tr td {
   padding: 0 1rem;
