@@ -119,11 +119,14 @@ function switchAbout(i){
     console.log(pokePath); //_____CONSOLE
     let setContent = document.getElementById('pokeDetailContent');
     setContent.innerHTML = '';
-    setContent.innerHTML = templateAbout(i);
+    setContent.innerHTML = templateAbout(i, pokePath);
 }
 
-function switchBaseStats(){
-    
+function switchBaseStats(i){
+    let pokePath = allPokemonDetail[i];
+    let setContent = document.getElementById('pokeDetailContent');
+    setContent.innerHTML = '';
+    setContent.innerHTML = templateBaseStats(i, pokePath);
 }
 
 function switchEvolution(){
@@ -131,7 +134,6 @@ function switchEvolution(){
 }
 
 function switchMoves(i){
-    let pokePath = allPokemonDetail[i];
     let setContent = document.getElementById('pokeDetailContent');
     setContent.innerHTML = '';
     setContent.innerHTML = templateMoves(i);
@@ -144,7 +146,7 @@ function pullAbilities(i){
     let htmlCode = '';
     for (let j = 0; j < pokePath.abilities.length; j++) {
         const element = pokePath.abilities[j];
-        console.log(element.ability.name);
+        //console.log(element.ability.name);  //_______CONSOLE
         htmlCode += `<span class="abilitySpacer">${element.ability.name}</span>`;
     } 
     return htmlCode;
@@ -158,4 +160,8 @@ function pullMoves(i){
         htmlCode += `<span class="moveSpacer">${element.move.name}</span>`;
     } 
     return htmlCode;
+}
+
+function pullStats(i){
+    
 }

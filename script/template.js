@@ -38,7 +38,7 @@ function templatePokeDetail(i) {
                     <div class="pokeDetailMenu">
                         <ul>
                             <li onclick="switchAbout(${i})" class="cursor">About</li>
-                            <li onclick="switchBaseStats()" class="cursor">Base Stats</li>
+                            <li onclick="switchBaseStats(${i})" class="cursor">Base Stats</li>
                             <li onclick="switchEvolution()" class="cursor">Evolution</li>
                             <li onclick="switchMoves(${i})" class="cursor">Moves</li>
                         </ul>
@@ -63,21 +63,6 @@ function templatePokeDetail(i) {
                                     <td>${pullAbilities(i)}</td>
                                 </tr>
                             </table>
-                            <span class="detailHeadline">Breeding</span>
-                            <table class="tableAbilities">
-                                <tr>
-                                    <th>Gender</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>Egg Groups</th>
-                                    <td class="nameUppercase"></td>
-                                </tr>
-                                <tr>
-                                    <th>Egg Cycle</th>
-                                    <td></td>
-                                </tr>
-                            </table>
                         </div>
                     </div>
                 </div>
@@ -87,8 +72,7 @@ function templatePokeDetail(i) {
     `
 }
 
-function templateAbout(i) {
-    let pokePath = allPokemonDetail[i];
+function templateAbout(i, pokePath) {
     return/*html*/`
     <div id="templateAbout">
     <table class="tableAbilities">
@@ -109,21 +93,6 @@ function templateAbout(i) {
             <td>${pullAbilities(i)}</td>
         </tr>
     </table>
-    <span class="detailHeadline">Breeding</span>
-    <table class="tableAbilities">
-        <tr>
-            <th>Gender</th>
-            <td></td>
-        </tr>
-        <tr>
-            <th>Egg Groups</th>
-            <td class="nameUppercase"></td>
-        </tr>
-        <tr>
-            <th>Egg Cycle</th>
-            <td></td>
-        </tr>
-    </table>
 </div>
     `
 }
@@ -133,5 +102,30 @@ function templateMoves(i) {
     <div class="detailMoves">
         ${pullMoves(i)}
     </div>
+    `
+}
+
+function templateBaseStats(i, pokePath) {
+    return/*html*/`
+    <div id="templateStats">
+    <table class="tableStats">
+        <tr>
+            <th>Species</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Height</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Weight</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Abilities</th>
+            <td></td>
+        </tr>
+    </table>
+</div>
     `
 }
