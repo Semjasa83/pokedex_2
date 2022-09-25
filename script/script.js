@@ -3,7 +3,7 @@ let allPokemonDetail = []; //specific Data from Pokemon
 let startOffset = 1; // 1 + 40 = 41      41 + 40 = 81
 let stopOffset = 30; // 40 + 40 = 80     80 + 40 = 120
 let permissionForLoadMore = true;
-let statsNames = ['HP','Attack','Defense','Sp.Atk','Sp.Def','Speed'];
+let percent;
 
 /********** API Fetch for Data ************/
 
@@ -93,12 +93,12 @@ async function loadMorePokemon() {
 /**
  * open Pokemon Detailbox
  */
-function openPokeDetail(i) {
+function openPokeDetail(i, pokePath) {
     let overlay = document.getElementById('pokeDetailPopup');
     let noscroll = document.getElementById('bodyScroll');
     overlay.classList.remove('d-none');
     noscroll.classList.add("noscrolling");
-    overlay.innerHTML = templatePokeDetail(i);
+    overlay.innerHTML = templatePokeDetail(i, pokePath);
     console.log('test', allPokemonDetail[i])
 }
 
@@ -182,6 +182,8 @@ function pullMoves(i){
     return htmlCode;
 }
 
+/////////////////////////////////
+
 /**
  * for receiving the Stats from current Pokemon
  * @param {number} i -- ID from current Pokemon
@@ -193,23 +195,15 @@ function pullStats(i, pokePath){
     for (let l = 0; l < pokePath.stats.length; l++) {
         const allStats = pokePath.stats[l];
         console.log(allStats);
-        htmlCode += `<tr>
-                        <th>${allStats.stat.name}</th>
-                        <td>${allStats.base_stat}</td>
-                        <td></td>
-                    </tr>`;
+        statsCalcPercentBar(allStats, l);
+        htmlCode += templateStatsBar(allStats, l);
     }
     return htmlCode;
 }
 
-function showStats(stats) {
-    let htmlCode = "";
-    for (let i = 0; i < statsNames.length; i++) {
-        htmlCode += `<tr>
-                        <td>${titles[i]}</td>
-                        <td id="stats_0" class="align">${stats[i].base_stat}</td>
-                        <td class="progress"><span id="progress_${i}" class="progress-bar" style="width: 75%"></span></td>
-                    </tr>`;
-    }
-    return htmlCode;
+function statsCalcPercentBar(allStats, l){
+    let w = allStats;
+    let g = 255;
+    let p = (w / g) * 100;
+    document.getElementById(`progress_${l}`).style.width = p.toFixed(0) + "%";
 }

@@ -107,9 +107,41 @@ function templateMoves(i) {
 function templateBaseStats(i, pokePath) {
     return/*html*/`
     <div id="templateStats">
-    <table class="tableAbilities">
+    <table class="tableStats">
         ${pullStats(i, pokePath)}
     </table>
 </div>
     `
 }
+
+
+//////////////////////////////////////////////////////////////////////////
+
+function templateStatsBar(allStats, l) {
+    return/*html*/`
+    <tr>
+        <th>${allStats.stat.name}</th>
+        <td class="baseStats">${allStats.base_stat}</td>
+        <td class="statsBar">
+            <span class="statsProgess" id="progress_${l}" style="height: 100%"></span>
+        </td>
+    </tr>
+    `
+}
+
+
+
+/*  ----> diese Funktion in Width einfügen!!!!!!
+function templateProgressbar(p, l) {
+    document.getElementById(`progress_${l}`).style.width = p.toFixed(0) + "%";
+}   
+*/
+
+/*
+function statsCalcProgressBar(allStats, l) {
+    let w = allStats;
+    let g = 255;
+    let p = (w / g)* 100;
+    templateProgressbar(p, l);
+}
+*/

@@ -273,6 +273,50 @@ body {
   margin-right: 1rem;
 }
 
+.tableStats {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.tableStats tr th {
+  color: var(--card-text);
+  font-weight: 400;
+  line-height: 2rem;
+  text-align: left;
+  width: 130px;
+}
+.tableStats tr .baseStats {
+  padding: 0 1.5rem;
+}
+.tableStats tr .statsBar {
+  width: 180px;
+  height: 3px;
+  background-color: var(--card-text);
+}
+.tableStats tr .statsBar .statsProgess {
+  display: block;
+  background: linear-gradient(90deg, #ffd33d, #ea4aaa 17%, #b34bff 34%, #01feff 51%, #ffd33d 68%, #ea4aaa 85%, #b34bff);
+  background-size: 300% 100%;
+  -webkit-animation: progress-animation 2s linear infinite;
+          animation: progress-animation 2s linear infinite;
+}
+
+@-webkit-keyframes progress-animation {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
+@keyframes progress-animation {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0;
+  }
+}
 .detailHeadline {
   font-size: 1.1rem;
   font-weight: 600;
