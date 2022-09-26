@@ -127,7 +127,7 @@ function templateStatsBar(allStats) {
         <th>${allStats.stat.name}</th>
         <td class="baseStats">${allStats.base_stat}</td>
         <td class="statsBar">
-            <span class="statsProgess" id="progress" style="height: 100%, width: ${p}"></span>
+            <span class="statsProgess" id="progress" style="height: 100%; width: ${p}"></span>
         </td>
     </tr>
     `

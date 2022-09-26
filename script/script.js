@@ -88,7 +88,7 @@ async function loadMorePokemon() {
 }
 
 
-/********** Detailbox ************/
+/********** Triggers for Detailbox ************/
 
 /**
  * open Pokemon Detailbox
@@ -113,7 +113,7 @@ function closePokeDetail() {
 }
 
 
-/********** DetailBox Content ************/
+/********** DetailBox Static Content ************/
 
 /**
  * Menu Button for About in Detail Popup 
@@ -148,7 +148,7 @@ function switchMoves(i){
     setContent.innerHTML = templateMoves(i);
 }
 
-/********** DetailBox Content Variables ************/
+/********** DetailBox variable Content ************/
 
 
 /**
@@ -182,11 +182,8 @@ function pullMoves(i){
     return htmlCode;
 }
 
-/////////////////////////////////
-
 /**
  * for receiving the Stats from current Pokemon
- * @param {number} i -- ID from current Pokemon
  * @param {Path from JSON} pokePath -- allPokemonDetail[i]
  * @returns 
  */
