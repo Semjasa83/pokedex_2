@@ -135,7 +135,7 @@ function switchBaseStats(i){
     let pokePath = allPokemonDetail[i];
     let setContent = document.getElementById('pokeDetailContent');
     setContent.innerHTML = '';
-    setContent.innerHTML = templateBaseStats(i, pokePath);
+    setContent.innerHTML = templateBaseStats(pokePath);
 }
 
 /**
@@ -190,20 +190,12 @@ function pullMoves(i){
  * @param {Path from JSON} pokePath -- allPokemonDetail[i]
  * @returns 
  */
-function pullStats(i, pokePath){
+function pullStats(pokePath){
     let htmlCode = '';
     for (let l = 0; l < pokePath.stats.length; l++) {
         const allStats = pokePath.stats[l];
         console.log(allStats);
-        statsCalcPercentBar(allStats, l);
-        htmlCode += templateStatsBar(allStats, l);
+        htmlCode += templateStatsBar(allStats);
     }
     return htmlCode;
-}
-
-function statsCalcPercentBar(allStats, l){
-    let w = allStats;
-    let g = 255;
-    let p = (w / g) * 100;
-    document.getElementById(`progress_${l}`).style.width = p.toFixed(0) + "%";
 }

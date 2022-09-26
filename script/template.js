@@ -104,11 +104,11 @@ function templateMoves(i) {
     `
 }
 
-function templateBaseStats(i, pokePath) {
+function templateBaseStats(pokePath) {
     return/*html*/`
     <div id="templateStats">
     <table class="tableStats">
-        ${pullStats(i, pokePath)}
+        ${pullStats(pokePath)}
     </table>
 </div>
     `
@@ -117,13 +117,17 @@ function templateBaseStats(i, pokePath) {
 
 //////////////////////////////////////////////////////////////////////////
 
-function templateStatsBar(allStats, l) {
+function templateStatsBar(allStats) {
+    let w = allStats.base_stat;
+    let g = 255;
+    let p = (w / g) * 100;
+    p = p.toFixed(0) + "%";
     return/*html*/`
     <tr>
         <th>${allStats.stat.name}</th>
         <td class="baseStats">${allStats.base_stat}</td>
         <td class="statsBar">
-            <span class="statsProgess" id="progress_${l}" style="height: 100%"></span>
+            <span class="statsProgess" id="progress" style="height: 100%, width: ${p}"></span>
         </td>
     </tr>
     `
