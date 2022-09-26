@@ -114,9 +114,6 @@ function templateBaseStats(pokePath) {
     `
 }
 
-
-//////////////////////////////////////////////////////////////////////////
-
 function templateStatsBar(allStats) {
     let w = allStats.base_stat;
     let g = 255;
@@ -134,18 +131,3 @@ function templateStatsBar(allStats) {
 }
 
 
-
-/*  ----> diese Funktion in Width einfügen!!!!!!
-function templateProgressbar(p, l) {
-    document.getElementById(`progress_${l}`).style.width = p.toFixed(0) + "%";
-}   
-*/
-
-/*
-function statsCalcProgressBar(allStats, l) {
-    let w = allStats;
-    let g = 255;
-    let p = (w / g)* 100;
-    templateProgressbar(p, l);
-}
-*/

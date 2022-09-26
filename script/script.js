@@ -1,9 +1,8 @@
 let allPokemon = []; //for all Data
 let allPokemonDetail = []; //specific Data from Pokemon
-let startOffset = 1; // 1 + 40 = 41      41 + 40 = 81
-let stopOffset = 30; // 40 + 40 = 80     80 + 40 = 120
-let permissionForLoadMore = true;
-let percent;
+let startOffset = 1; // 1 + 30 = 31      31 + 30 = 61
+let stopOffset = 30; // 30 + 30 = 60     60 + 30 = 90
+let permissionForLoadMore = true; //for initialize Load on Scroll
 
 /********** API Fetch for Data ************/
 
@@ -195,4 +194,19 @@ function pullStats(pokePath){
         htmlCode += templateStatsBar(allStats);
     }
     return htmlCode;
+}
+
+
+/**
+ * Searches for each loaded Pokemon by letter
+ */
+function searchPokemon() {
+    let search = document.getElementById('searchinput').value;
+    const loadedPokemon = allPokemon.filter(p => p.name.includes(search));
+    console.log(loadedPokemon);  //_____console
+    /*
+    if(document.getElementById('searchinput').value == search) {
+        allPokemon = loadedPokemon;
+        loadPokemon();
+    }*/
 }
