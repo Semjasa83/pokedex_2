@@ -1,5 +1,5 @@
 :root {
-  --card-border: #ffffff99;
+  --card-border: #e2e2e299;
   --card-shadow: #ffffff55;
   --card-text: #7c7c7cdd;
   --font-dark: #000000;
@@ -7,16 +7,16 @@
   --menu-decor: #a9a9a966;
   --primary-color: #00000099;
   --secondary-card: #ffffff;
-  --secondary-color: #609ad066;
+  --secondary-color-dim: #609ad066;
+  --secondary-color: #3661ac;
 }
 
 body {
-  background-color: var(--secondary-color);
-  box-shadow: 0 0 70px inset var(--font-dark);
+  background-color: var(--secondary-color-dim);
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   font-family: "Plus Jakarta Sans", sans-serif;
+  height: 100vh;
   justify-content: center;
   margin: 0;
   position: relative;
@@ -43,17 +43,42 @@ body {
   cursor: pointer;
 }
 
-.mainLogo {
+.header {
+  align-items: center;
+  box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 15rem;
+  justify-content: center;
+  width: 100%;
+}
+.header .mainLogo {
   height: 7rem;
-  margin: 3rem;
+  margin: 1.5rem;
   -o-object-fit: cover;
      object-fit: cover;
   width: 20rem;
+}
+.header .searchbar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.header .searchbar #searchinput {
+  background-color: var(--font-hover);
+  border-radius: 1rem;
+  border: 2px solid var(--secondary-color);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem;
+  width: 200px;
 }
 
 /********** Pokemon Index ***********/
 #pokeIndex {
   flex-wrap: wrap;
+  margin-top: 2rem;
   width: 100%;
 }
 #pokeIndex .pokeIndexOverview {
@@ -246,7 +271,6 @@ body {
 }
 
 #pokeDetailContent {
-  border: 1px solid red;
   height: 100%;
   margin: 1rem;
   width: auto;
@@ -255,6 +279,7 @@ body {
 .tableAbilities {
   padding-bottom: 1rem;
   padding-top: 1rem;
+  padding-left: 1rem;
 }
 .tableAbilities tr th {
   color: var(--card-text);
@@ -276,6 +301,7 @@ body {
 .tableStats {
   padding-bottom: 1rem;
   padding-top: 1rem;
+  padding-left: 1rem;
 }
 .tableStats tr th {
   color: var(--card-text);
@@ -288,16 +314,16 @@ body {
   padding: 0 1.5rem;
 }
 .tableStats tr .statsBar {
-  width: 180px;
+  background-color: var(--card-border);
   height: 3px;
-  background-color: var(--card-text);
+  width: 180px;
 }
 .tableStats tr .statsBar .statsProgess {
-  display: block;
-  background: linear-gradient(90deg, #ffd33d, #ea4aaa 17%, #b34bff 34%, #01feff 51%, #ffd33d 68%, #ea4aaa 85%, #b34bff);
-  background-size: 300% 100%;
   -webkit-animation: progress-animation 2s linear infinite;
           animation: progress-animation 2s linear infinite;
+  background-size: 300% 100%;
+  display: block;
+  background: linear-gradient(90deg, #ffd33d, #ea4aaa 17%, #b34bff 34%, #01feff 51%, #ffd33d 68%, #ea4aaa 85%, #b34bff);
 }
 
 @-webkit-keyframes progress-animation {
@@ -328,6 +354,7 @@ body {
   flex-wrap: wrap;
   height: 370px;
   overflow: scroll;
+  padding-left: 1rem;
   width: 100%;
 }
 .detailMoves .moveSpacer {

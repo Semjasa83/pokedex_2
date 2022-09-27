@@ -1,5 +1,5 @@
 :root {
-    --card-border: #ffffff99;
+    --card-border: #e2e2e299;
     --card-shadow: #ffffff55;
     --card-text: #7c7c7cdd;
     --font-dark: #000000;
@@ -7,16 +7,16 @@
     --menu-decor: #a9a9a966;
     --primary-color: #00000099;
     --secondary-card: #ffffff;
-    --secondary-color: #609ad066;
+    --secondary-color-dim: #609ad066;
+    --secondary-color: #3661ac;
 }
 
 body {
-    background-color: var(--secondary-color);
-    box-shadow: 0 0 70px inset var(--font-dark);
+    background-color: var(--secondary-color-dim);
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     font-family: "Plus Jakarta Sans", sans-serif;
+    height: 100vh;
     justify-content: center;
     margin: 0;
     position: relative;
@@ -36,6 +36,7 @@ body {
 }
 
 .nameUppercase {
+    
     &:first-letter {
         text-transform: uppercase;
     }
@@ -45,19 +46,47 @@ body {
     cursor: pointer;
 }
 
-.mainLogo {
-    height: 7rem;
-    margin: 3rem;
-    object-fit: cover;
-    width: 20rem;
+.header {
+    align-items: center;
+    box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    justify-content: center;
+    width: 100%;
+    
+    .mainLogo {
+        height: 7rem;
+        margin: 1.5rem;
+        object-fit: cover;
+        width: 20rem;
+    }
+
+    .searchbar {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        
+        #searchinput {
+            background-color: var(--font-hover);
+            border-radius: 1rem;
+            border: 2px solid var(--secondary-color);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 1rem;
+            width: 200px;
+        }
+    }
 }
 
 /********** Pokemon Index ***********/
 
 #pokeIndex {
     flex-wrap: wrap;
+    margin-top: 2rem;
     width: 100%;
-
+    
     .pokeIndexOverview {
         border-radius: 1rem;
         border: 2px solid var(--card-border);
@@ -65,17 +94,17 @@ body {
         margin: 1.5rem;
         padding: 0.5rem;
         width: 300px;
-
+        
         .pokeIndexHeadline {
             display: flex;
             justify-content: space-between;
             padding-bottom: 1.5rem;
-
+            
             span {
                 color: var(--font-dark);
                 font-size: 1rem;
                 font-weight: 600;
-
+                
                 &:first-letter {
                     text-transform: uppercase;
                 }
@@ -94,13 +123,13 @@ body {
     height: 80%;
     justify-content: center;
     padding-top: 0.5rem;
-
+    
     .pokeIndexTypes {
         display: flex;
         flex-direction: column;
         padding-left: 0.5rem;
         width: 6rem;
-
+        
         .pokeIndexType {
             border-radius: 1rem;
             font-size: 0.75rem;
@@ -126,7 +155,7 @@ body {
     position: fixed;
     width: 100%;
     z-index: 3;
-
+    
     #pokeDetailSpacer {
         align-items: center;
         background-color: #00000077;
@@ -148,20 +177,20 @@ body {
     position: relative;
     width: 450px;
     z-index: 5;
-
+    
     .pokeDetailNav {
         align-items: center;
         display: flex;
         flex-direction: column;
         height: 10%;
         width: 100px;
-
+        
         img {
             height: 2rem;
             margin-top: 2rem;
             object-fit: contain;
             width: 2rem;
-
+            
             &:hover {
                 background-color: var(--font-hover);
                 border-radius: 100%;
@@ -175,7 +204,7 @@ body {
 .pokeDetailTypes {
     display: flex;
     margin: 0.5rem 2rem 0.5rem 2rem;
-
+    
     .pokeIndexType {
         border-radius: 1rem;
         margin-right: 1rem;
@@ -191,16 +220,16 @@ body {
     justify-content: space-between;
     margin: 0 0 1rem 0;
     position: relative;
-
+    
     .pokeDetailSort {
         display: flex;
         justify-content: space-between;
-
+        
         span {
             font-size: 2rem;
             font-weight: 700;
             margin: 1rem 2rem 0.5rem 2rem;
-
+            
             &:first-letter {
                 text-transform: uppercase;
             }
@@ -216,14 +245,14 @@ body {
     height: 60%;
     position: absolute;
     width: 100%;
-
+    
     .pokeDetailLower {
         display: flex;
         height: 90%;
         justify-content: center;
         position: relative;
         width: 100%;
-
+        
         .pokeDetailAvatar {
             left: 50%;
             max-height: 200px;
@@ -239,14 +268,14 @@ body {
     height: 1rem;
     padding: 0;
     width: 100%;
-
+    
     ul {
         display: flex;
         justify-content: space-between;
         list-style: none;
         margin: 1rem 2rem;
         padding: 0;
-
+        
         li {
             border-bottom: 2px solid var(--menu-decor);
             color: var(--card-text);
@@ -255,7 +284,7 @@ body {
             padding: 1rem;
             white-space: pre-wrap;
             width: 33%;
-
+            
             &:hover {
                 border-bottom: 2px solid var(--font-dark);
                 color: var(--font-dark);
@@ -265,7 +294,6 @@ body {
 }
 
 #pokeDetailContent {
-    border: 1px solid red;
     height: 100%;
     margin: 1rem;
     width: auto;
@@ -274,8 +302,10 @@ body {
 .tableAbilities {
     padding-bottom: 1rem;
     padding-top: 1rem;
+    padding-left: 1rem;
 
     tr {
+        
         th {
             color: var(--card-text);
             font-weight: 400;
@@ -298,8 +328,10 @@ body {
 .tableStats {
     padding-bottom: 1rem;
     padding-top: 1rem;
-
+    padding-left: 1rem;
+    
     tr {
+        
         th {
             color: var(--card-text);
             font-weight: 400;
@@ -311,26 +343,36 @@ body {
             padding: 0 1.5rem;
         }
         .statsBar {
-            width: 180px;
+            background-color: var(--card-border);
             height: 3px;
-            background-color: var(--card-text);
+            width: 180px;
+            
             .statsProgess {
-                display: block;
-                background: linear-gradient(90deg, #ffd33d, #ea4aaa 17%, #b34bff 34%, #01feff 51%, #ffd33d 68%, #ea4aaa 85%, #b34bff);
-                background-size: 300% 100%;
                 animation: progress-animation 2s linear infinite;
+                background-size: 300% 100%;
+                display: block;     
+                background: linear-gradient(90deg,
+                    #ffd33d,
+                    #ea4aaa 17%,
+                    #b34bff 34%,
+                    #01feff 51%,
+                    #ffd33d 68%,
+                    #ea4aaa 85%,
+                    #b34bff
+                );
             }
         }
     }
 }
 
 @keyframes progress-animation {
+    
     0% {
-        background-position: 100%
+        background-position: 100%;
     }
 
     100% {
-        background-position: 0
+        background-position: 0;
     }
 }
 
@@ -345,8 +387,9 @@ body {
     flex-wrap: wrap;
     height: 370px;
     overflow: scroll;
+    padding-left: 1rem;
     width: 100%;
-
+    
     .moveSpacer {
         background-color: var(--font-hover);
         border-radius: 2rem;

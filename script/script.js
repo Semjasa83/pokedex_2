@@ -3,6 +3,7 @@ let allPokemonDetail = []; //specific Data from Pokemon
 let startOffset = 1; // 1 + 30 = 31      31 + 30 = 61
 let stopOffset = 30; // 30 + 30 = 60     60 + 30 = 90
 let permissionForLoadMore = true; //for initialize Load on Scroll
+let filteredPokemon = [];
 
 /********** API Fetch for Data ************/
 
@@ -56,7 +57,8 @@ function loadPokemonTypes(i) {
  * Render first 30 Pokemon
  */
 function loadPokemonData() {
-    for (let i = startOffset - 1; i < allPokemonDetail.length; i++) {
+    document.getElementById('pokeIndex').innerHTML = '';
+    for (let i = 0; i < allPokemonDetail.length; i++) {
         let pokePath = allPokemonDetail[i];
         //console.log('detail array', element); //_____CONSOLE
         loadPokemonTypes(i);
@@ -202,11 +204,23 @@ function pullStats(pokePath){
  */
 function searchPokemon() {
     let search = document.getElementById('searchinput').value;
-    const loadedPokemon = allPokemon.filter(p => p.name.includes(search));
-    console.log(loadedPokemon);  //_____console
-    /*
-    if(document.getElementById('searchinput').value == search) {
-        allPokemon = loadedPokemon;
+    if (search.length == 0) {
+        allPokemonDetail = allPokemon;
         loadPokemon();
-    }*/
+    } else {
+        allPokemonDetail = allPokemon.filter(p => p.name.includes(search));
+        console.log(allPokemonDetail);  //_____console
+        
+        renderFilteredPokemons();
+    }
+
+}
+
+function renderFilteredPokemons() {
+    document.getElementById('pokeIndex').innerHTML = '';
+    for (let index = 0; index < allPokemonDetail.length; index++) {
+        let pokePath = allPokemonDetail[index];
+        document.getElementById('pokeIndex').innerHTML += renderPokeIndex(index, pokePath);
+        
+    }
 }

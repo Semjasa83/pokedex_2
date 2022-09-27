@@ -15,10 +15,13 @@
 </head>
 
 <body id="bodyScroll" onload="loadPokemon()" onscroll="scrollLoading()">
-    <img class="mainLogo" src="../img/mainlogo.svg">
-    <div class="searchbar">
-        <input id="searchinput" type="text" size="25" maxlength="30" placeholder="Pokemon Name..." onkeyup="searchPokemon()">
+    <div class="header">
+        <div class="searchbar">
+            <img class="mainLogo" src="../img/mainlogo.svg">
+            <input id="searchinput" type="text" size="25" maxlength="30" placeholder="Pokemon Name..." onkeyup="searchPokemon()">
+        </div>
     </div>
+
     <div id="pokeDetailPopup" class="d-none"></div>
     <div id="pokeIndex" class="dispfl-c"></div>
 </body>
