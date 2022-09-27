@@ -66,6 +66,7 @@ function loadPokemonData() {
     }
 }
 
+
 /********** Index Load ************/
 
 /**
@@ -206,7 +207,7 @@ function searchPokemon() {
     let search = document.getElementById('searchinput').value;
     if (search.length == 0) {
         allPokemonDetail = allPokemon;
-        loadPokemon();
+        loadPokemonData();
     } else {
         allPokemonDetail = allPokemon.filter(p => p.name.includes(search));
         console.log(allPokemonDetail);  //_____console
