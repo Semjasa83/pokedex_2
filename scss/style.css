@@ -34,6 +34,11 @@ body {
   overflow: hidden;
 }
 
+.active {
+  color: var(--font-dark) !important;
+  border-bottom: 2px solid var(--font-dark) !important;
+}
+
 .nameUppercase:first-letter {
   text-transform: uppercase;
 }

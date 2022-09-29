@@ -37,9 +37,9 @@ function templatePokeDetail(i) {
                     <img class="pokeDetailAvatar" src="${pokePath.sprites.other.dream_world.front_default}">
                     <div class="pokeDetailMenu">
                         <ul>
-                            <li onclick="switchAbout(${i})" class="cursor">About</li>
-                            <li onclick="switchBaseStats(${i})" class="cursor">Base Stats</li>
-                            <li onclick="switchMoves(${i})" class="cursor">Moves</li>
+                            <li onclick="switchAbout(${i})" id="about" class="cursor active">About</li>
+                            <li onclick="switchBaseStats(${i})" id="baseStats" class="cursor">Base Stats</li>
+                            <li onclick="switchMoves(${i})" id="moves" class="cursor">Moves</li>
                         </ul>
                     <div>
                     <div id="pokeDetailContent">

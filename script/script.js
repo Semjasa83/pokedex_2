@@ -101,7 +101,7 @@ function openPokeDetail(i, pokePath) {
     overlay.classList.remove('d-none');
     noscroll.classList.add("noscrolling");
     overlay.innerHTML = templatePokeDetail(i, pokePath);
-    console.log('test', allPokemonDetail[i])
+    //console.log('test', allPokemonDetail[i])    //_______CONSOLE
 }
 
 /**
@@ -123,10 +123,11 @@ function closePokeDetail() {
  */
 function switchAbout(i){
     let pokePath = allPokemonDetail[i];
-    console.log(pokePath); //_____CONSOLE
+    //console.log(pokePath); //_____CONSOLE
     let setContent = document.getElementById('pokeDetailContent');
     setContent.innerHTML = '';
     setContent.innerHTML = templateAbout(i, pokePath);
+    statusTabAbout();
 }
 
 /**
@@ -138,6 +139,7 @@ function switchBaseStats(i){
     let setContent = document.getElementById('pokeDetailContent');
     setContent.innerHTML = '';
     setContent.innerHTML = templateBaseStats(pokePath);
+    statusTabStats();
 }
 
 /**
@@ -148,6 +150,7 @@ function switchMoves(i){
     let setContent = document.getElementById('pokeDetailContent');
     setContent.innerHTML = '';
     setContent.innerHTML = templateMoves(i);
+    statusTabMoves();
 }
 
 /********** DetailBox variable Content ************/
@@ -193,7 +196,7 @@ function pullStats(pokePath){
     let htmlCode = '';
     for (let l = 0; l < pokePath.stats.length; l++) {
         const allStats = pokePath.stats[l];
-        console.log(allStats);
+        //console.log(allStats); //______CONSOLE
         htmlCode += templateStatsBar(allStats);
     }
     return htmlCode;
@@ -210,18 +213,36 @@ function searchPokemon() {
         loadPokemonData();
     } else {
         allPokemonDetail = allPokemon.filter(p => p.name.includes(search));
-        console.log(allPokemonDetail);  //_____console
-        
+        //console.log(allPokemonDetail);  //_____console
         renderFilteredPokemons();
     }
-
 }
 
 function renderFilteredPokemons() {
     document.getElementById('pokeIndex').innerHTML = '';
     for (let index = 0; index < allPokemonDetail.length; index++) {
         let pokePath = allPokemonDetail[index];
-        document.getElementById('pokeIndex').innerHTML += renderPokeIndex(index, pokePath);
-        
+        document.getElementById('pokeIndex').innerHTML += renderPokeIndex(index, pokePath); 
     }
+}
+
+/**
+ * sets Tabs active - inactive
+ */
+function statusTabAbout() {
+    document.getElementById('about').classList.add('active');
+    document.getElementById('baseStats').classList.remove('active');
+    document.getElementById('moves').classList.remove('active');    
+}
+
+function statusTabStats() {
+    document.getElementById('about').classList.remove('active');
+    document.getElementById('baseStats').classList.add('active');
+    document.getElementById('moves').classList.remove('active');    
+}
+
+function statusTabMoves() {
+    document.getElementById('about').classList.remove('active');
+    document.getElementById('baseStats').classList.remove('active');
+    document.getElementById('moves').classList.add('active');    
 }
