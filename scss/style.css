@@ -59,8 +59,8 @@ body {
 .header .mainLogo {
   height: 7rem;
   margin: 1.5rem;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 20rem;
 }
 .header .searchbar {
@@ -152,7 +152,7 @@ body {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.4666666667);
   display: flex;
-  height: 100%;
+  height: 100vh;
   justify-content: center;
   width: 100%;
   z-index: 4;
@@ -366,4 +366,42 @@ body {
   border-radius: 2rem;
   margin: 0.5rem;
   padding: 0.5rem;
+}
+
+@media (max-width: 550px) {
+  .header {
+    height: unset;
+  }
+  .mainLogo {
+    margin: 0.5rem !important;
+    -o-object-fit: contain;
+       object-fit: contain;
+    width: 12rem !important;
+  }
+  #searchinput {
+    padding: 0.5rem !important;
+  }
+  .pokeIndexAvatar {
+    -o-object-fit: contain !important;
+       object-fit: contain !important;
+    height: 90% !important;
+    width: 100% !important;
+  }
+  #pokeIndex {
+    height: 220px;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  #pokeIndex .pokeIndexOverview {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    width: 80%;
+    height: 200px;
+  }
+  #pokeIndex .pokeIndexOverview .pokeIndexHeadline {
+    padding-bottom: 1rem;
+  }
+  #pokeIndex .pokeIndexOverview .pokeIndexTypes {
+    width: 3rem;
+  }
 }/*# sourceMappingURL=style.css.map */
