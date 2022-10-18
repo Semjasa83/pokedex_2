@@ -84,7 +84,9 @@ body {
 /********** Pokemon Index ***********/
 #pokeIndex {
   flex-wrap: wrap;
+  height: 100vh;
   margin-top: 2rem;
+  overflow-y: scroll;
   width: 100%;
 }
 #pokeIndex .pokeIndexOverview {
