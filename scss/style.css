@@ -35,8 +35,8 @@ body {
 }
 
 .active {
-  color: var(--font-dark) !important;
   border-bottom: 2px solid var(--font-dark) !important;
+  color: var(--font-dark) !important;
 }
 
 .nameUppercase:first-letter {
@@ -49,6 +49,8 @@ body {
 
 .header {
   align-items: center;
+  background: rgb(81, 149, 152);
+  background: linear-gradient(180deg, rgb(81, 149, 152) 0%, rgba(232, 232, 232, 0) 100%);
   box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
@@ -151,12 +153,12 @@ body {
   z-index: 3;
 }
 #pokeDetailPopup #pokeDetailSpacer {
-  position: relative;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.4666666667);
   display: flex;
   height: 100vh;
   justify-content: center;
+  position: relative;
   width: 100%;
   z-index: 4;
 }
@@ -285,8 +287,8 @@ body {
 
 .tableAbilities {
   padding-bottom: 1rem;
-  padding-top: 1rem;
   padding-left: 1rem;
+  padding-top: 1rem;
 }
 .tableAbilities tr th {
   color: var(--card-text);
@@ -307,8 +309,8 @@ body {
 
 .tableStats {
   padding-bottom: 1rem;
-  padding-top: 1rem;
   padding-left: 1rem;
+  padding-top: 1rem;
 }
 .tableStats tr th {
   color: var(--card-text);
@@ -326,30 +328,11 @@ body {
   width: 180px;
 }
 .tableStats tr .statsBar .statsProgess {
-  -webkit-animation: progress-animation 2s linear infinite;
-          animation: progress-animation 2s linear infinite;
   background-size: 300% 100%;
+  background: #3661ac;
   display: block;
-  background: linear-gradient(90deg, #ffd33d, #ea4aaa 17%, #b34bff 34%, #01feff 51%, #ffd33d 68%, #ea4aaa 85%, #b34bff);
 }
 
-@-webkit-keyframes progress-animation {
-  0% {
-    background-position: 100%;
-  }
-  100% {
-    background-position: 0;
-  }
-}
-
-@keyframes progress-animation {
-  0% {
-    background-position: 100%;
-  }
-  100% {
-    background-position: 0;
-  }
-}
 .detailHeadline {
   font-size: 1.1rem;
   font-weight: 600;
@@ -380,10 +363,10 @@ body {
     width: 100%;
   }
   #pokeIndex .pokeIndexOverview {
+    height: 200px;
     margin: 1rem 0;
     padding: 0.5rem;
     width: 80%;
-    height: 200px;
   }
   #pokeIndex .pokeIndexOverview .pokeIndexHeadline {
     padding-bottom: 1rem;
@@ -406,22 +389,22 @@ body {
     padding: 0.5rem !important;
   }
   .pokeIndexAvatar {
+    height: 90% !important;
     -o-object-fit: contain !important;
        object-fit: contain !important;
-    height: 90% !important;
     width: 100% !important;
   }
   #pokeDetail {
-    width: 100%;
-    height: 100%;
     border-radius: 0;
     font-size: 0.65rem;
+    height: 100%;
+    width: 100%;
   }
   #pokeDetail .pokeDetailAvatar {
+    left: 60%;
     max-height: 120px;
     max-width: 120px;
     top: -7rem;
-    left: 60%;
   }
   #pokeDetailContent {
     height: 100%;

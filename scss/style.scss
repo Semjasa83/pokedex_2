@@ -35,11 +35,12 @@ body {
 }
 
 .active {
-    color: var(--font-dark) !important;
     border-bottom: 2px solid var(--font-dark) !important;
+    color: var(--font-dark) !important;
 }
 
 .nameUppercase {
+    
     &:first-letter {
         text-transform: uppercase;
     }
@@ -51,13 +52,15 @@ body {
 
 .header {
     align-items: center;
+    background: rgb(81,149,152);
+    background: linear-gradient(180deg, rgba(81,149,152,1) 0%, rgba(232,232,232,0) 100%);
     box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     height: 15rem;
     justify-content: center;
     width: 100%;
-
+    
     .mainLogo {
         height: 7rem;
         margin: 1.5rem;
@@ -70,7 +73,7 @@ body {
         display: flex;
         flex-direction: column;
         margin-bottom: 2rem;
-
+        
         #searchinput {
             background-color: var(--font-hover);
             border-radius: 1rem;
@@ -89,7 +92,7 @@ body {
     flex-wrap: wrap;
     margin-top: 2rem;
     width: 100%;
-
+    
     .pokeIndexOverview {
         border-radius: 1rem;
         border: 2px solid var(--card-border);
@@ -97,6 +100,7 @@ body {
         margin: 1.5rem;
         padding: 0.5rem;
         width: 300px;
+        
         &:hover {
             transform: scale(1.1);
         }
@@ -105,12 +109,12 @@ body {
             display: flex;
             justify-content: space-between;
             padding-bottom: 1.5rem;
-
+            
             span {
                 color: var(--font-dark);
                 font-size: 1rem;
                 font-weight: 600;
-
+                
                 &:first-letter {
                     text-transform: uppercase;
                 }
@@ -129,13 +133,13 @@ body {
     height: 80%;
     justify-content: center;
     padding-top: 0.5rem;
-
+    
     .pokeIndexTypes {
         display: flex;
         flex-direction: column;
         padding-left: 0.5rem;
         width: 6rem;
-
+        
         .pokeIndexType {
             border-radius: 1rem;
             font-size: 0.75rem;
@@ -160,14 +164,14 @@ body {
     position: fixed;
     width: 100%;
     z-index: 3;
-
+    
     #pokeDetailSpacer {
-        position: relative;
         align-items: center;
         background-color: #00000077;
         display: flex;
         height: 100vh;
         justify-content: center;
+        position: relative;
         width: 100%;
         z-index: 4;
     }
@@ -183,20 +187,20 @@ body {
     position: relative;
     width: 450px;
     z-index: 5;
-
+    
     .pokeDetailNav {
         align-items: center;
         display: flex;
         flex-direction: column;
         height: 10%;
         width: 100px;
-
+        
         img {
             height: 2rem;
             margin-top: 2rem;
             object-fit: contain;
             width: 2rem;
-
+            
             &:hover {
                 background-color: var(--font-hover);
                 border-radius: 100%;
@@ -210,7 +214,7 @@ body {
 .pokeDetailTypes {
     display: flex;
     margin: 0.5rem 2rem 0.5rem 2rem;
-
+    
     .pokeIndexType {
         border-radius: 1rem;
         margin-right: 1rem;
@@ -226,16 +230,16 @@ body {
     justify-content: space-between;
     margin: 0 0 1rem 0;
     position: relative;
-
+    
     .pokeDetailSort {
         display: flex;
         justify-content: space-between;
-
+        
         span {
             font-size: 2rem;
             font-weight: 700;
             margin: 1rem 2rem 0.5rem 2rem;
-
+            
             &:first-letter {
                 text-transform: uppercase;
             }
@@ -251,14 +255,14 @@ body {
     height: 60%;
     position: absolute;
     width: 100%;
-
+    
     .pokeDetailLower {
         display: flex;
         height: 90%;
         justify-content: center;
         position: relative;
         width: 100%;
-
+        
         .pokeDetailAvatar {
             left: 50%;
             max-height: 200px;
@@ -274,14 +278,14 @@ body {
     height: 1rem;
     padding: 0;
     width: 100%;
-
+    
     ul {
         display: flex;
         justify-content: space-between;
         list-style: none;
         margin: 1rem 2rem;
         padding: 0;
-
+        
         li {
             border-bottom: 2px solid var(--menu-decor);
             color: var(--card-text);
@@ -290,7 +294,7 @@ body {
             padding: 1rem;
             white-space: pre-wrap;
             width: 33%;
-
+            
             &:hover {
                 border-bottom: 2px solid var(--font-dark);
                 color: var(--font-dark);
@@ -307,10 +311,11 @@ body {
 
 .tableAbilities {
     padding-bottom: 1rem;
-    padding-top: 1rem;
     padding-left: 1rem;
-
+    padding-top: 1rem;
+    
     tr {
+        
         th {
             color: var(--card-text);
             font-weight: 400;
@@ -332,10 +337,11 @@ body {
 
 .tableStats {
     padding-bottom: 1rem;
-    padding-top: 1rem;
     padding-left: 1rem;
-
+    padding-top: 1rem;
+    
     tr {
+        
         th {
             color: var(--card-text);
             font-weight: 400;
@@ -350,35 +356,16 @@ body {
             background-color: var(--card-border);
             height: 3px;
             width: 180px;
-
+            
             .statsProgess {
-                animation: progress-animation 2s linear infinite;
                 background-size: 300% 100%;
+                background: #3661ac;
                 display: block;
-                background: linear-gradient(
-                    90deg,
-                    #ffd33d,
-                    #ea4aaa 17%,
-                    #b34bff 34%,
-                    #01feff 51%,
-                    #ffd33d 68%,
-                    #ea4aaa 85%,
-                    #b34bff
-                );
             }
         }
     }
 }
 
-@keyframes progress-animation {
-    0% {
-        background-position: 100%;
-    }
-
-    100% {
-        background-position: 0;
-    }
-}
 
 .detailHeadline {
     font-size: 1.1rem;
@@ -393,7 +380,7 @@ body {
     overflow-y: scroll;
     padding-left: 1rem;
     width: 100%;
-
+    
     .moveSpacer {
         background-color: var(--font-hover);
         border-radius: 2rem;
@@ -407,15 +394,18 @@ body {
 
 /***** Vertical Design  *****/
 @media (max-width: 380px) {
+    
     #pokeIndex {
         height: 220px;
         margin-top: 1rem;
         width: 100%;
+        
         .pokeIndexOverview {
+            height: 200px;
             margin: 1rem 0;
             padding: 0.5rem;
             width: 80%;
-            height: 200px;
+            
             .pokeIndexHeadline {
                 padding-bottom: 1rem;
             }
@@ -427,6 +417,7 @@ body {
 }
 
 @media (max-width: 550px) {
+    
     .header {
         height: unset;
     }
@@ -439,20 +430,21 @@ body {
         padding: 0.5rem !important;
     }
     .pokeIndexAvatar {
-        object-fit: contain !important;
         height: 90% !important;
+        object-fit: contain !important;
         width: 100% !important;
     }
     #pokeDetail {
-        width: 100%;
-        height: 100%;
         border-radius: 0;
         font-size: 0.65rem;
+        height: 100%;
+        width: 100%;
+        
         .pokeDetailAvatar {
+            left: 60%;
             max-height: 120px;
             max-width: 120px;
             top: -7rem;
-            left: 60%;
         }
     }
     #pokeDetailContent {
@@ -480,7 +472,9 @@ body {
 
     .pokeDetailBtnEffect {
         border-radius: 1rem 1rem 0 0;
+        
         .pokeDetailMenu {
+            
             li {
                 padding: 0.25rem;
             }
